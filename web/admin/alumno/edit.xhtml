@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="../baseadmin.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core">
+
+    
+    <ui:define name="title">
+        Edicion de Alumno...
+    </ui:define>
+    
+    <ui:define name="content">
+        <h2> Editar  Alumno.:  #{alumnoFace.selectedBean.nombre}</h2>
+        <h:form>            
+            <f:validateBean>        
+                <h:messages/>
+            <table>
+                <tr>
+                    <td>Nombre del Alumno.:</td>
+                    <td><h:inputText value="#{alumnoFace.selectedBean.nombre}"/></td>
+                </tr>      
+                <tr>
+                    <td>Apellido del Alumno.:</td>
+                    <td><h:inputText value="#{alumnoFace.selectedBean.apelido}"/></td>
+                </tr>      
+                                
+                <tr>
+                    <td>Barrio.:</td>
+                    <td><h:inputText value="#{alumnoFace.selectedBean.barrio}"/></td>
+                </tr>      
+                
+                <tr>
+                    <td>Cedula.:</td>
+                    <td><h:inputText value="#{alumnoFace.selectedBean.cedula}"/></td>
+                </tr>      
+                
+                <tr>
+                    <td>Celular.:</td>
+                    <td><h:inputText value="#{alumnoFace.selectedBean.celular}"/></td>
+                </tr>      
+                
+                <tr>
+                    <td>Celular Pariente.:</td>
+                    <td><h:inputText value="#{alumnoFace.selectedBean.celularParente}"/></td>
+                </tr>      
+                <tr>
+                    <td>Direccion.:</td>
+                    <td><h:inputText value="#{alumnoFace.selectedBean.direccion}"/></td>
+                </tr>      
+                <tr>
+                    <td>Email.:</td>
+                    <td><h:inputText value="#{alumnoFace.selectedBean.email}"/></td>
+                </tr>      
+                    <tr>                        
+                        <td>Estado Civil.:</td>
+                        <td><h:selectOneMenu  style="width: 150px" value="#{alumnoFace.selectedBean.estadoCivil}">
+                                <f:selectItems var="itemSel" itemLabel="#{itemSel.descripcion}" itemValue="#{itemSel}" value="#{alumnoFace.allEstadoCivil}"/>
+                                <f:converter converterId="estadocivilConverter"/>
+                            </h:selectOneMenu>
+                        </td>
+                    </tr>                       
+<!--                <tr>
+                    <td>Fecha Matricula.:</td>
+                    <td><h:inputText value="#{alumnoFace.selectedBean.fechaMatricula}"/></td>
+                </tr>      
+                
+                <tr>
+                    <td>Fecha Nacimiento.:</td>
+                    <td><h:inputText value="#{alumnoFace.selectedBean.fechaNascimiento}"/></td>
+                </tr>      -->
+                    <tr>                        
+                        <td>Genero.:</td>
+                        <td><h:selectOneMenu  style="width: 150px" value="#{alumnoFace.selectedBean.genero}">
+                                <f:selectItems var="itemSel" itemLabel="#{itemSel.descripcion}" itemValue="#{itemSel}" value="#{alumnoFace.allGenero}"/>
+                                <f:converter converterId="generoConverter"/>
+                            </h:selectOneMenu>
+                        </td>
+                    </tr>       
+                <tr>
+                    <td>Linea Baja.:</td>
+                    <td><h:inputText value="#{alumnoFace.selectedBean.lineaBaja}"/></td>
+                </tr>      
+                <tr>
+                    <td>Nombre en Caso de Emergencia.:</td>
+                    <td><h:inputText value="#{alumnoFace.selectedBean.nombreCasoEemergencia}"/></td>
+                </tr>      
+                <tr>
+                    <td>Parentesco.:</td>
+                    <td><h:inputText value="#{alumnoFace.selectedBean.parentesco}"/></td>
+                </tr>      
+                <tr>
+                    <td>Telefono Parente.:</td>
+                    <td><h:inputText value="#{alumnoFace.selectedBean.telefonoParente}"/></td>
+                </tr>     
+
+                <tr>
+                    <td>Login.:</td>
+                    <td><h:inputText value="#{alumnoFace.selectedBean.login}"/></td>
+                </tr>      
+
+                <tr>
+                    <td>Password.:</td>
+                    <td><h:inputSecret value="#{alumnoFace.selectedBean.password}"/></td>
+                </tr>      
+
+                <br/>
+                <br/>
+                <tr>
+                    <td><center><h:commandButton action="#{alumnoFace.doFinishEditAlumno()}" value="Modificar " /></center></td>
+                    <td><center><h:commandButton immediate="true"  action="#{alumnoFace.doListAlumno()}" value="Cancelar" /></center></td>                    
+                </tr>                                    
+            </table> 
+            </f:validateBean>
+        </h:form>        
+    </ui:define>
+
+</ui:composition>

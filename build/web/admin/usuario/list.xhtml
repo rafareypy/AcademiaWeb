@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="../baseadmin.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+    
+    <ui:define name="title">
+        Lista de Usuarios
+    </ui:define>
+    
+    <ui:define name="content">
+        <h2> Usuarios.:</h2>
+        <h:form>
+            <c:if test="#{usuarioFace.list.isEmpty()}">
+                The products list is empty ! , podes crear un nuevo Usuario haciendo click
+                <h:commandLink action="#{usuarioFace.doCreateUsuario()}" value="aqui"/>.
+            </c:if>
+            <c:if test="#{!usuarioFace.list.isEmpty()}">
+            <h:dataTable var="item" value="#{usuarioFace.list}">
+            <h:column>
+                <f:facet name="header">
+                    Id
+                </f:facet>
+                #{item.id}
+            </h:column>
+            
+                <h:column>
+                    <f:facet name="header">
+                        Nombre del Usuario
+                    </f:facet>
+                    #{item.nombre}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        Actions
+                    </f:facet>
+                    <h:commandLink action="#{usuarioFace.doEditUsuario()}" value="Edit">
+                        <f:setPropertyActionListener target="#{usuarioFace.selectedBean}" value="#{item}"/>
+                    </h:commandLink>
+                    &nbsp;
+                    <h:commandLink onclick="return confirm('Estas Seguro de Eliminar ??')  " action="#{grupoFace.doRemoveGrupo()}" value="Remover">
+                        <f:setPropertyActionListener target="#{usuarioFace.selectedBean}" value="#{item}"/>
+                    </h:commandLink>
+                
+                </h:column>            
+            
+            </h:dataTable>    
+                <h:commandButton action="#{usuarioFace.doCreateUsuario()}" value="Crea nuevo Usuario"/>        
+            </c:if>
+        </h:form>        
+    </ui:define>
+
+</ui:composition>

@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="../baseadmin.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+    
+    <ui:define name="title">
+        Series !!!
+    </ui:define>
+    
+    
+    
+    <ui:define name="content">
+        <h2> Series del Alumno.:  #{serieDetalleFace.serie.alumno}</h2>
+        <h:form>            
+            <f:validateBean>        
+                <h:messages/>
+            
+                <table bgcolor="FFEBCD" >
+                <tr>                
+                    <td bgcolor="dddddd"  >Alumno.:</td>
+                    <td><h:outputText value="#{serieDetalleFace.serie.alumno.apelido}"/></td>                
+                    <br/>                    
+                    <td bgcolor="dddddd"  >Numero de Series.:</td>
+                    <td><h:inputText value="#{serieDetalleFace.selectedBean.nroSeries}"/></td>
+                    <br/>                    
+                    <td bgcolor="dddddd"  >Dia.. #{serieDetalleFace.serie.diaSemana} </td>                    
+                    
+                </tr>
+                    <tr>
+                        <td bgcolor="dddddd" >Aparato Musculacion.:</td>
+                        <td><h:selectOneMenu  style="width: 150px" value="#{serieDetalleFace.selectedBean.aparatoMusculacion}">
+                                <f:selectItems var="itemSel" itemLabel="#{itemSel.descripcion}" itemValue="#{itemSel}" value="#{serieDetalleFace.allAparatoMusculacion}"/>
+                                <f:converter converterId="aparatoMusuclacionConverter"/>
+                            </h:selectOneMenu>
+                        </td>
+                        
+                
+                    
+                        <td bgcolor="dddddd"  >Ejercicio.:</td>
+                        <td><h:selectOneMenu  style="width: 150px" value="#{serieDetalleFace.selectedBean.ejercicio}">
+                                <f:selectItems var="itemSel" itemLabel="#{itemSel.descripcion}" itemValue="#{itemSel}" value="#{serieDetalleFace.allEjercicios}"/>
+                                <f:converter converterId="ejercicioConverter"/>
+                            </h:selectOneMenu>
+                        </td>
+                    </tr>
+                
+                <tr>
+                    
+                    
+                    
+                <c:forEach var="item" items="#{serieDetalleFace.listTemporal}">
+                   
+                    <tr>
+                        
+                        <td>
+                            
+                            <h:outputText value="#{item.id}" >  </h:outputText>
+                            <hr></hr>
+                        </td>
+                        <td>
+                             
+                            -               Aparato : 
+                            <h:outputText value="#{item.aparatoMusculacion.descripcion}" >  </h:outputText>
+                            <hr></hr>
+                        </td>
+                        <td>
+                             
+                            -               Ejercicio : 
+                            <h:outputText value="#{item.ejercicio.descripcion}"  >  </h:outputText>
+                            <hr></hr>
+                        </td>
+                        <td>
+                            
+                            -               Series : 
+                            <h:outputText value="#{item.nroSeries}"  >  </h:outputText>
+                             <hr></hr>
+                        </td>    
+                        <td>
+                                 
+                                <h:commandLink immediate="true" 
+                                action="#{serieDetalleFace.doRemoveSerieDetalle}" 
+                                value="     Excluir Serie Detalle" >                                     
+                                    <f:param name="id" value="#{item.id}" />
+                                </h:commandLink>
+                            <hr></hr>
+                        </td>   
+                    </tr>                        
+                    
+                </c:forEach>
+                
+                </tr>
+                
+
+                <tr>
+                    <td><center><h:commandButton action="#{serieDetalleFace.doFinishCreateSerieDetalle()}" value="Agregar Serie Detalle " /></center></td>
+                    <td><center><h:commandButton immediate="true"  action="#{serieDetalleFace.doListSerieDetalle()}" value="Cancelar" /></center></td>                    
+                </tr>
+
+            </table> 
+            </f:validateBean>
+        </h:form>        
+    </ui:define>
+
+</ui:composition>

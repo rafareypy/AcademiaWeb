@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="./base.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+    
+    <ui:define name="title">
+        Lista de Series !!!
+    </ui:define>
+    
+   
+    
+    
+    <ui:define name="content">
+        <h2> Series Por Alumno Logado .:</h2>        
+        <h:form>
+            
+            <div id="apresentacao" >
+                    <img src="/AcademiaWeb/resources/images/AparatoMusculacao.jpg" alt="logo"/>
+                </div>            
+            
+            <h:messages/>
+            <c:if test="#{!serieDetalleFace.listSeriePorAlumno.isEmpty()}">
+            <h:dataTable var="item" value="#{serieDetalleFace.listSeriePorAlumno}">
+               
+            <h:column>
+                <f:facet name="header">
+                    Id:
+                </f:facet>
+                
+                #{item.id}
+                <br/>------------------------<br/>
+            </h:column>
+            
+                <h:column>
+                    <f:facet name="header">
+                        Nombre de Alumno:
+                    </f:facet>
+                    
+                    #{item.alumno.apelido}
+                   <br/> ------------------------<br/>
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header">
+                        Dia Semana:
+                    </f:facet>
+                    
+                    #{item.diaSemana}
+                   <br/> ------------------------<br/>
+                </h:column>
+                
+                
+
+                <h:column>
+                    <f:facet name="header">
+                        Actions
+                    </f:facet>
+                    <h:commandLink action="#{serieDetalleFace.doVariosSerieDetallePorIDEAlumnoLogado()}" value="Verificar">
+                        <f:param name="id" value="#{item.id}" />
+                    </h:commandLink>
+                <br/> ------------------------<br/>
+                </h:column>    
+            
+            </h:dataTable>    
+
+            </c:if>
+        </h:form>        
+    </ui:define>
+
+</ui:composition>

@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Login</title>
+    </h:head>
+
+    <h:body>
+        <h:outputStylesheet library="css"     name="login.css"/>
+       
+        <h:form>
+            
+            <f:validateBean>
+            <div class="login" id="login" >                
+                <img alt="logo"  src="../resources/images/BonecoQc.jpg"/>
+                <div class="logintable">
+                    <table class="login" >
+                        <tr>
+                            <td colspan="2" ><h2>user name or Password Invalid !!!</h2></td>                                        
+                        </tr>                     
+                        <tr>
+                            <td colspan="2" ><h:messages styleClass="error" /></td>                                        
+                        </tr>                                             
+                        <tr>
+                            <td>Login.:</td>                        
+                            <td><h:inputText value="#{adminLoginFace.login}"/></td>                        
+                        </tr>                    
+                        <tr>
+                            <td>Passsword.:</td>                        
+                            <td><h:inputSecret size="10"  value="#{adminLoginFace.password}" /><h:commandButton action="#{adminLoginFace.doLogin}" value="Log In"  /></td>                        
+                        </tr>                                        
+                        <tr>                        
+                            <td colspan="2" ></td>                        
+                        </tr>                                        
+                        
+                    </table>                        
+                </div>
+            </div>
+          </f:validateBean>
+        </h:form>
+        
+    </h:body>
+
+</html>

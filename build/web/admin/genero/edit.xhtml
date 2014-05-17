@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="../baseadmin.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:define name="title">
+        Modificar Serie Detalle...
+    </ui:define>
+    <ui:define name="content">
+        <h2>Modificar Serie Detalle... #{serieDetalleFace.selectedBean.serie}</h2>
+        <h:form>
+            <f:validateBean>
+                <h:messages/>
+                <table>
+                    <tr>
+                        <td>Serie.:</td>
+                        <td><h:selectOneMenu  style="width: 150px" value="#{serieDetalleFace.selectedBean.id}">
+                                <f:selectItems var="itemSel" itemLabel="#{itemSel.serie.id}" itemValue="#{itemSel}" value="#{serieDetalleFace.listSerieDetalle}"/>
+                                <f:converter converterId="serieConverter"/>
+                            </h:selectOneMenu>
+                        </td>
+                    </tr>                                
+                
+                <tr>
+                    <td>Numero de Series.:</td>
+                    <td><h:inputText value="#{serieDetalleFace.selectedBean.nroSeries}"/></td>
+                </tr>                                  
+                
+                    <tr>
+                        <td>Aparato Musculacion.:</td>
+                        <td><h:selectOneMenu  style="width: 150px" value="#{serieDetalleFace.selectedBean.aparatoMusculacion}">
+                                <f:selectItems var="itemSel" itemLabel="#{itemSel.descripcion}" itemValue="#{itemSel}" value="#{serieDetalleFace.allAparatoMusculacion}"/>
+                                <f:converter converterId="aparatoMusuclacionConverter"/>
+                            </h:selectOneMenu>
+                        </td>
+                    </tr>                                
+                
+
+                    <tr>
+                        <td>Ejercicio.:</td>
+                        <td><h:selectOneMenu  style="width: 150px" value="#{serieDetalleFace.selectedBean.ejercicio}">
+                                <f:selectItems var="itemSel" itemLabel="#{itemSel.descripcion}" itemValue="#{itemSel}" value="#{serieDetalleFace.allEjercicios}"/>
+                                <f:converter converterId="ejercicioConverter"/>
+                            </h:selectOneMenu>
+                        </td>
+                    </tr>                                
+                
+
+                <tr>
+                    <td><center><h:commandButton action="#{serieDetalleFace.doFinishEditSerieDetalle()}" value="Modificar " /></center></td>
+                    <td><center><h:commandButton immediate="true"  action="#{serieDetalleFace.doListSerieDetalle()}" value="Cancelar" /></center></td>                    
+                </tr>
+
+                </table>
+            </f:validateBean>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

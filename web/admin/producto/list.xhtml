@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="../baseadmin.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+    
+    <ui:define name="title">
+        Lista de Productos..!!!
+    </ui:define>
+    
+    <ui:define name="content">
+        <h2> Productos.:</h2>
+        <h:form>
+            <c:if test="#{productoFace.list.isEmpty()}">
+                Lista de Productos esta vacia ! , podes Agregar un Producto haciendo click
+                <h:commandLink action="#{productoFace.doCreateProducto()}" value=" aqui"/>.
+            </c:if>
+            <c:if test="#{!productoFace.list.isEmpty()}">
+            <h:dataTable var="item" value="#{productoFace.list}">
+            <h:column>
+                <f:facet name="header">
+                    Id
+                </f:facet>
+                #{item.id}
+            </h:column>
+            
+                <h:column>
+                    <f:facet name="header">
+                        Nombre de Producto.:
+                    </f:facet>
+                    #{item.name}
+                </h:column>
+                
+
+                <h:column>
+                    <f:facet name="header">
+                        Costo de Producto.:
+                    </f:facet>
+                    #{item.cost}
+                </h:column>
+
+
+                <h:column>
+                    <f:facet name="header">
+                        Especificacion de Producto.:
+                    </f:facet>
+                    #{item.spec}
+                </h:column>
+                        
+                <h:column>
+                    <f:facet name="header">
+                        Tipo Producto.:
+                    </f:facet>
+                    #{item.tipoProducto}
+                </h:column>
+                        
+
+                
+                
+                <h:column>
+                    <f:facet name="header">
+                        Actions
+                    </f:facet>
+                    <h:commandLink action="#{productoFace.doEditProducto()}" value="Edit">
+                        <f:setPropertyActionListener target="#{productoFace.selectedBean}" value="#{item}"/>
+                    </h:commandLink>
+                    &nbsp;
+                    <h:commandLink onclick="return confirm('Estas Seguro de Eliminar ??')  " action="#{productoFace.doRemoveProducto()}" value="Remover">
+                        <f:setPropertyActionListener target="#{productoFace.selectedBean}" value="#{item}"/>
+                    </h:commandLink>
+                
+                </h:column>            
+            
+            </h:dataTable>    
+                <h:commandButton action="#{productoFace.doCreateProducto()}" value="Crea nuevo Producto"/>        
+            </c:if>
+        </h:form>        
+    </ui:define>
+
+</ui:composition>

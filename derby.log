@@ -1,0 +1,10 @@
+----------------------------------------------------------------
+Mon Jun 17 16:55:35 PYT 2013:
+ Inicializando o Derby versão The Apache Software Foundation - Apache Derby - 10.8.1.2 - (1095077): instância a816c00e-013f-53eb-e24e-000001fb80d8
+no diretório de banco de dados /tmp/gfembed2437085831639117994tmp/lib/databases/ejbtimer  
+
+java.vendor=Sun Microsystems Inc.
+java.runtime.version=1.6.0_27-b27
+user.dir=/home/rafael/projetos/AcademiaWeb
+derby.system.home=null
+Carregador de classe do banco de dados iniciado - derby.database.classpath=''

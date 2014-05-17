@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="../baseadmin.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:define name="title">
+        Modificar Ejercicio
+    </ui:define>
+    <ui:define name="content">
+        <h2>Modificar Ejercicio #{ejercicioFace.selectedBean.descripcion}</h2>
+        <h:form>
+            <f:validateBean>
+                <h:messages/>
+                <table>
+                    <tr>
+                        <td>Name</td>
+                        <td><h:inputText value="#{ejercicioFace.selectedBean.descripcion}"/></td>
+                    </tr>
+                    <tr>
+                        <td><center><h:commandButton action="#{ejercicioFace.doFinishEditEjercicio()}" value="Modificar Ejercicio "/></center></td>
+                        <td><center><h:commandButton immediate="true" action="#{ejercicioFace.doListEjercicio()}" value="Cancel"/></center></td>
+                    </tr>
+                </table>
+            </f:validateBean>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+    
+    <body>
+        
+        
+        <ui:composition>
+            <div id="menu">
+                <h:form>
+                <ul>
+                    
+                        <li>Ventas..</li>
+                        <ul>                                                       
+                            <li><h:commandLink action="#{ventaFace.doVentaCOMESTIBLE()}"            value="..FreeShop.."  ></h:commandLink></li>
+                            <li><h:commandLink action="#{ventaFace.doVentaRopas()}"            value="Vender Ropas"  ></h:commandLink></li>                          
+                            <li><h:commandLink action="#{ventaFace.doConsultarVentas()}"            value="Consultar Ventas.."  ></h:commandLink></li>                          
+                        </ul>
+                        
+                        <hr/>
+                        
+                        <li>Alumnos..</li>
+                        <ul>
+                            <li><h:commandLink action="#{alumnoFace.doListAlumno()}"  value="Almunos"  ></h:commandLink></li>       
+                            <li><h:commandLink action="#{evaluacionFace.doListEvaluacion()}"                   value="Evaluacion"  ></h:commandLink></li>
+                            <li><h:commandLink action="#{evaluacionFace.doBuscarEvavuacionProAlumno()}"        value=" Buscar Evaluacion por Alumno "  ></h:commandLink></li>                            
+                            <li><h:commandLink action="#{serieDetalleFace.doListSerieDetalle()}"                  value="Crear Serie"  ></h:commandLink></li>
+                            <li><h:commandLink action="#{serieDetalleFace.doBuscaSeriePorAlumno()}"                  value="Serie Por Alumno "  ></h:commandLink></li>
+                            <!--<li><h:commandLink action="#{serieFace.doListSerie()}"                  value="Serie"  ></h:commandLink></li>-->                                                                                                                                           
+                        </ul>
+                        
+                        <hr/>
+                        <li>Servicios Ofrecidos..</li>
+                        <ul>                           
+                            <li><h:commandLink action="#{servicioFace.doListServicio()}"            value="Servicios"  ></h:commandLink></li>
+                            <li><h:commandLink action="#{planDePagoItemFace.doListPlanDePagoItem()}"            value="Planes"  ></h:commandLink></li>
+                            <li><h:commandLink action="#{planDePagoFace.doGeneraCuotas()}"      value="Generar Cuotas"  ></h:commandLink></li>                            
+                        </ul>
+                        
+                        
+                        <hr/>
+                        <li>Cuotas..</li>
+                        <ul>                           
+                            <li><h:commandLink action="#{planDePagoItemFace.doListCuotasPlanPago()}"            value="Cuotas"  ></h:commandLink></li>
+                            <li><h:commandLink action="#{planDePagoItemFace.doBuscarCuotasPlanPagoPorAlumno()}"            value="Cuotas Por Alumno"  ></h:commandLink></li>
+                            <li><h:commandLink action="#{planDePagoItemFace.doConsultarCuotasPorFecha()}"            value="Cuotas Pagas Por Fecha"  ></h:commandLink></li>
+                            
+                            
+                        </ul>
+                        
+
+                        <hr/>
+                    
+                        <li>Parametros</li>
+                        <ul>                           
+                            <li><h:commandLink action="#{nivelUsuarioFace.doListNivelUsuario()}"    value="Nivel de Usuario"  ></h:commandLink></li>                                                                                   
+                            <li><h:commandLink action="#{paisFace.doListAparatoPais()}"             value="Pais"  ></h:commandLink></li>                                                       
+                            <li><h:commandLink action="#{ciudadFace.doListCiduad()}"                value="Ciudad"  ></h:commandLink></li>                                                                                                                                       
+                            <li><h:commandLink action="#{objetivoFace.doListObjetivo()}"            value="Objetivo"  ></h:commandLink></li>                                                       
+                            <li><h:commandLink action="#{generoFace.doListGenero()}"                value="Genero"  ></h:commandLink></li>                                                                                   
+                            <li><h:commandLink action="#{estadoCivilFace.doListEstadoCivil()}"      value="Estado Civil"  ></h:commandLink></li>                                                                                   
+                            <li><h:commandLink action="#{ejercicioFace.doListEjercicio()}"          value="Ejercicio"  ></h:commandLink></li>                                                                                   
+                            <li><h:commandLink action="#{aparatoMusculacionFace.doListAparatoMusculacion()}"      value="Aparato de Musculacion"  ></h:commandLink></li>                                                        
+                            <li><h:commandLink action="#{usuarioFace.doListUsuarios()}"              value="Usuarios"  ></h:commandLink></li>                                                                
+                            <li><h:commandLink action="#{productoFace.doListProducto()}"            value="Productos"  ></h:commandLink></li>                                                        
+                        </ul>
+                        
+                        
+                        
+                    </ul>            
+                        <hr/>
+                    <ul>                        
+                        <li><h:commandLink action="#{adminLoginFace.doLogout()}"
+                                           value="Salir"  ></h:commandLink></li> 
+                    </ul>                    
+                </h:form>                    
+            </div>
+        </ui:composition>                
+    </body>
+    
+</html>

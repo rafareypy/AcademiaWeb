@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="./base.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html">
+
+    <ui:define name="title">
+       Sistema Academia - Login..
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form id="frmLogin" >
+            <h:messages/>
+            <div id="login">
+                <table>
+                    <tr>
+                        <td>
+                            Login:
+                        </td>
+                        <td>
+                            <h:inputText id="user" binding="#{usuarioAlumnoFace.userUI}" 
+                                         required="true" requiredMessage="Campo Login nao pode ser vazio !!"
+                                         value="#{usuarioAlumnoFace.selectedBean.login}"/>
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                            Password.:
+                        </td>
+                        <td>
+                            <h:inputSecret id="password" validator="#{usuarioAlumnoFace.validateLogin}" 
+                                           binding="#{usuarioAlumnoFace.passwordUI}"  
+                                           required="true" requiredMessage="Campo Pin nao pode ser vazio !!" 
+                                           value="#{usuarioAlumnoFace.selectedBean.password}"/>
+                        </td>                        
+                    </tr>
+                    <tr>
+                        <td colspan="2" >
+                            <h:commandButton value="login" action="#{usuarioAlumnoFace.doFinishLoginSystem}" />&nbsp;
+                            <h:commandButton value="cancel" action="#{usuarioAlumnoFace.doCancel}"/> 
+                        </td>
+                    </tr>
+                    
+                </table>
+<!--                <h:outputScript >
+                    document.frmLogin["frmLogin:user"].focus();                    
+                </h:outputScript>                -->
+            </div>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+    
+    
+    <body>
+        <ui:composition>
+            
+            
+            
+            <h:form>
+                <div id="apresentacao" >
+                    <img src="/AcademiaWeb/resources/images/SistemaWeb.png" alt="logo"/>
+                </div>
+                <div id="loginDiv" style="text-align: right">
+                    <h:outputText rendered="#{usuarioAlumnoFace.userLogged}" value="Bienvenido..#{usuarioAlumnoFace.loggedUser.nombre}"/>
+                    <h:commandLink rendered="#{usuarioAlumnoFace.userLogged}" value="[salir]" action="#{usuarioAlumnoFace.doLogOut()}"/> &nbsp;
+                                        
+                    <h:commandLink  rendered="#{!usuarioAlumnoFace.userLogged}" value="Inicio Session" action="#{usuarioAlumnoFace.doLoginSystem}"/>
+                </div>
+            </h:form>
+            
+            
+        </ui:composition>                
+    </body>
+    
+</html>

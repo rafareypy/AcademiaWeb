@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="../baseadmin.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core">
+
+    
+    <ui:define name="title">
+        Lista de Evaluaciones
+    </ui:define>
+    
+    <ui:define name="content">
+        <h2> Agregar Nueva Evaluacion.:</h2>
+        <h:form>            
+            
+            
+            <f:validateBean>        
+                <h:messages/>
+            <table>
+                    <tr>                        
+                        <td>Alumno.:</td>
+                        <td><h:selectOneMenu  style="width: 150px" value="#{evaluacionFace.selectedBean.alumno}">
+                                <f:selectItems var="itemSel" itemLabel="#{itemSel.nombre}" itemValue="#{itemSel}" value="#{evaluacionFace.listAlumnos}"/>
+                                <f:converter converterId="alumnoConverter"/>
+                            </h:selectOneMenu>
+                        </td>
+                    </tr>                       
+
+                    <tr>                        
+                        <td>Objetivo.:</td>
+                        <td><h:selectOneMenu  style="width: 150px" value="#{evaluacionFace.selectedBean.objetivo}">
+                                <f:selectItems var="itemSel" itemLabel="#{itemSel.descripcion}" itemValue="#{itemSel}" value="#{evaluacionFace.listObjetivos}"/>
+                                <f:converter converterId="objetivoConverter"/>
+                            </h:selectOneMenu>
+                        </td>
+                    </tr>                       
+                
+                
+                <tr>
+                    <td>Brazo Derecho.:</td>
+                    <td><h:inputText value="#{evaluacionFace.selectedBean.bazoDerecho}"/></td>
+                </tr>      
+                <tr>
+                    <td>Brazo Izquierdo.:</td>
+                    <td><h:inputText value="#{evaluacionFace.selectedBean.bazoIzquierdo}"/></td>
+                </tr>      
+                <tr>
+                    <td>Circunferencia Abdominal.:</td>
+                    <td><h:inputText value="#{evaluacionFace.selectedBean.circunferenciaAbdominal}"/></td>
+                </tr>      
+                <tr>
+                    <td>Circunferencia Toracica.:</td>
+                    <td><h:inputText value="#{evaluacionFace.selectedBean.circunferenciaToracica}"/></td>
+                </tr>      
+                <tr>
+                    <td>IMC.:</td>
+                    <td><h:inputText value="#{evaluacionFace.selectedBean.imc}"/></td>
+                </tr>      
+                <tr>
+                    <td>Pantorilla Derecha.:</td>
+                    <td><h:inputText value="#{evaluacionFace.selectedBean.pantorillaDerecha}"/></td>
+                </tr>      
+                <tr>
+                    <td>Pantorilla Izquierda.:</td>
+                    <td><h:inputText value="#{evaluacionFace.selectedBean.pantorillaEzquierda}"/></td>
+                </tr>      
+                <tr>
+                    <td>Peso.:</td>
+                    <td><h:inputText value="#{evaluacionFace.selectedBean.peso}"/></td>
+                </tr>      
+                <tr>
+                    <td>Pierna Derecha.:</td>
+                    <td><h:inputText value="#{evaluacionFace.selectedBean.piernaDerecha}"/></td>
+                </tr>      
+                <tr>
+                    <td>Pierna Izquierda.:</td>
+                    <td><h:inputText value="#{evaluacionFace.selectedBean.piernaIzquierda}"/></td>
+                </tr>      
+                <tr>
+                    <td>Talla.:</td>
+                    <td><h:inputText value="#{evaluacionFace.selectedBean.talha}"/></td>
+                </tr>      
+                    
+                <tr>
+                    <td><center><h:commandButton action="#{evaluacionFace.doFinishCreateEvaluacion()}" value="Agregar Nueva Evaluacion " /></center></td>
+                    <td><center><h:commandButton immediate="true"  action="#{evaluacionFace.doListEvaluacion()}" value="Cancelar" /></center></td>                    
+                </tr>                                  
+            </table> 
+            </f:validateBean>
+        </h:form>        
+    </ui:define>
+
+</ui:composition>

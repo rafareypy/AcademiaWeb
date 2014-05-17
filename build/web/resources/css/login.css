@@ -1,0 +1,14 @@
+.login {
+    text-align: center;
+    table-layout: auto;
+}
+
+.error {
+    color: #D20005;
+
+}
+.logintable {
+    margin: 0 auto;
+    width: 250px;
+
+}

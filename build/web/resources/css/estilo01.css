@@ -1,0 +1,41 @@
+/* 
+    Document   : estilo01
+    Created on : 11/06/2013, 21:13:41
+    Author     : rafael
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+body{   
+   background:url("../resources/images/Fundootro.jpg");
+}
+
+
+
+
+
+
+.fundo_madeira {
+	/*background:url("../resources/images/engrenagem.jpg");*/
+}
+
+
+.login {
+    text-align: center;
+    table-layout: auto;
+}
+
+.error {
+    color: #D20005;
+
+}
+.login {
+    margin: 0 auto;
+    width: 250px;
+
+}
+

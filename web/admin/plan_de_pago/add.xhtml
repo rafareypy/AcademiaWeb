@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="../baseadmin.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core">
+
+    
+    <ui:define name="title">
+        Lista de Plan de Pagos..!!!
+    </ui:define>
+    
+    <ui:define name="content">
+        <h2> Agregar Nuevo Plan de Pago.:</h2>
+        <h:form>            
+            
+            
+            <f:validateBean>        
+                <h:messages/>
+            <table bgcolor="#DEB887" >
+                
+                    <tr>
+                        <td>Alumno.:</td>
+                        <td><h:selectOneMenu  style="width: 150px" value="#{planDePagoItemFace.planDePago.alumno}">
+                                <f:selectItems var="itemSel" itemLabel="#{itemSel.nombre}" itemValue="#{itemSel}" value="#{alumnoFace.listAlumno}"/>
+                                <f:converter converterId="alumnoConverter"/>
+                            </h:selectOneMenu>
+                        </td>
+
+                    </tr>                                
+                    <tr>
+                        <td>Descripcion.:</td>
+                        <td><h:inputText value="#{planDePagoItemFace.planDePago.descripcion}"/></td>
+                    </tr>                                
+                
+                    <tr>
+                        <td>Servicios.:</td>
+                        <td><h:selectOneMenu  style="width: 150px" value="#{planDePagoItemFace.selectedBean.servicio}">
+                                <f:selectItems var="itemSel" itemLabel="#{itemSel.descripcion}" itemValue="#{itemSel}" value="#{planDePagoItemFace.listServicios}"/>
+                                <f:converter converterId="servicioConverter"/>
+                            </h:selectOneMenu>
+                        </td>
+                    </tr>                                
+                
+                    <tr>
+                        <td>Dia Venc.:</td>
+                        <td><h:inputText value="#{planDePagoItemFace.planDePago.diaDoMesVenc}"/></td>
+                    </tr>                                
+                
+                
+                <tr>
+                    <td><center><h:commandButton action="#{planDePagoItemFace.doFinishCreatePlanDePagoItem()}" value="Agregar Nuevo Plan de Pago !!!!" /></center></td>
+                    <td><center><h:commandButton immediate="true"  action="#{planDePagoItemFace.doListPlanDePago()}" value="Cancelar" /></center></td>                    
+                </tr>
+                                    
+            </table> 
+            </f:validateBean>
+        </h:form>        
+    </ui:define>
+
+</ui:composition>

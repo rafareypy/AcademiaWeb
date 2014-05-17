@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    
+    <body>
+        <ui:composition>
+            <div id="menu">
+                <h:form>
+                    <hr/>
+                <ul>
+                    Menu..  
+                    <br/>
+                    <br/>
+                    <li>
+                        <h:commandLink action="#{serieDetalleFace.doBuscaSeriePorAlumnoLogado()}" value="Series..">
+                            <f:setPropertyActionListener target="#{serieDetalleFace.alumno}" value="#{usuarioAlumnoFace.loggedUser}"/>
+                        </h:commandLink>
+                    </li>    
+                    <hr/>
+                    <li>
+                        <h:commandLink action="#{planDePagoItemFace.doBuscarPlanesPagoPorAlumnoLogado()}" value="Planes de Pago..">
+                            <f:setPropertyActionListener target="#{planDePagoItemFace.alumno}" value="#{usuarioAlumnoFace.loggedUser}"/>
+                        </h:commandLink>                        
+                    </li>
+                    <hr/>
+                    <li>
+                        <h:commandLink action="#{planDePagoItemFace.doListCuotasPlanPagoPorAlumnoLogado()}" value="Cuotas..">
+                            <f:setPropertyActionListener target="#{planDePagoItemFace.alumno}" value="#{usuarioAlumnoFace.loggedUser}"/>
+                        </h:commandLink>                        
+                    </li>
+                </ul>
+                <hr/>                    
+                </h:form>                    
+            </div>
+        </ui:composition>                
+    </body>
+    
+
+</html>

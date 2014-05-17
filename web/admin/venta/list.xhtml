@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="../baseadmin.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+    <ui:define name="title">
+        Ventas..
+    </ui:define>
+    
+    <ui:define name="content">
+        <h2> Ventas Por Fechas  </h2>
+        <h4> Inicial:  #{ventaFace.fechaInicioString}         
+             .. Final:  #{ventaFace.fechaFinString}            
+        </h4>
+                <hr/>
+        <h:form>
+            <c:if test="#{ventaFace.listVenta.isEmpty()}">
+                Lista de Ventas esta vacia.. !!!
+            </c:if>
+            <c:if test="#{!ventaFace.listVenta.isEmpty()}">
+                <h:dataTable bgcolor="#DEB887" var="item" value="#{ventaFace.listVenta}">
+            <h:column>
+                <f:facet name="header">
+                    Id
+                </f:facet>
+                #{item.id}
+            </h:column>
+            
+                <h:column>
+                    <f:facet name="header">
+                        Fecha.:
+                    </f:facet>
+                        <h:outputText value="#{item.fechaVenta}">
+                            <f:convertDateTime pattern="dd/MM/yyyy"/>
+                        </h:outputText>                   
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        ......
+                    </f:facet>
+                        ......
+                </h:column>
+                    
+                <h:column>
+                    <f:facet name="header">
+                        Monto.:
+                    </f:facet>
+                    #{item.total}
+                </h:column>
+                                
+            </h:dataTable>    
+                <hr/>
+                <h:form>
+                    
+                        <h:column  >
+                            <font color="#A52A2A" >
+                                Total...
+                            </font>
+                            <font color="#DC143C" >                                
+                            <h:outputText  value="#{ventaFace.somaTotalVentaFormatado}">                            <f:convertNumber type="currency"/>
+                            </h:outputText>
+                            </font>
+                        </h:column>
+                </h:form>
+                <hr/>
+                <h:commandButton action="#{ventaFace.doConsultarVentas()}" value="Crear Nueva Busqueda.."/>        
+                <hr/>
+            </c:if>
+        </h:form>        
+    </ui:define>
+
+</ui:composition>

@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="../baseadmin.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+    
+    <ui:define name="title">
+        Cuotas de los alumnos!!! pague aqui mesmo!!!
+    </ui:define>
+    
+    <ui:define name="content">
+        <h2> Cuotas del Almuno.:  #{planDePagoItemFace.alumno.nombre}</h2>
+        <h:form>            
+            <f:validateBean>        
+                <h:messages/>
+                <c:if test="#{planDePagoItemFace.listaCuotaPlanDePago.isEmpty()}">
+                    No hay Ninguna Mensalidade !!!                
+                </c:if>
+
+                <c:if test="#{!planDePagoItemFace.listaCuotaPlanDePago.isEmpty()}">
+                    <h2> Cuotas del Alumno.:  #{serieDetalleFace.serie.alumno}</h2>
+                </c:if>
+                
+                
+                <h:dataTable var="item" value="#{planDePagoItemFace.listaCuotaPlanDePago}"
+                             bgcolor="FFEBCD">
+                    <h:column>
+                        <f:facet name="header">
+                            Id
+                        </f:facet>
+                        #{item.id}
+                    </h:column>
+
+                    <h:column >
+                    <f:facet name="header">
+                        Fecha .:
+                    </f:facet>                    
+                        <h:outputText value="#{item.fechaPago}">
+                            <f:convertDateTime pattern="dd/mm/yyyy"/>
+                        </h:outputText>                                                                                        
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            Fecha Vencimiento.:
+                        </f:facet>
+                        <h:outputText value="#{item.fechaVencimiento}">
+                            <f:convertDateTime pattern="dd/mm/yyyy"/>
+                        </h:outputText>                                                                                                                                        
+                    </h:column>
+                    
+                    <h:column>
+                        <f:facet name="header">
+                            Valor
+                        </f:facet>
+                        <font color="RED" >#{item.valor}</font>
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            Nombre Plan
+                        </f:facet>
+                        #{item.planDePago.descripcion}
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            Estado
+                        </f:facet>
+                        <font color="RED" >#{item.estadoCuota}</font>
+                    </h:column>
+
+                    
+                    <h:column>
+                        <f:facet name="header">
+                            Accion
+                        </f:facet>
+                        
+                        <h:commandLink action="#{planDePagoItemFace.doDescontarMensalidade()}" value="Descontar">
+                            <f:setPropertyActionListener target="#{planDePagoItemFace.cuotaPlanDePago}" value="#{item}"/>
+                        </h:commandLink>
+                        &nbsp;
+                        <h:commandLink onclick="return confirm('Estas Seguro de Reanudar ??')  " action="#{planDePagoItemFace.doReanudarMensalidade()}" value="Reanudar">
+                            <f:setPropertyActionListener target="#{planDePagoItemFace.cuotaPlanDePago}" value="#{item}"/>
+                        </h:commandLink>
+                        
+                        
+                    </h:column>
+                    
+                    
+                </h:dataTable>
+                
+            </f:validateBean>
+        </h:form>        
+    </ui:define>
+
+</ui:composition>

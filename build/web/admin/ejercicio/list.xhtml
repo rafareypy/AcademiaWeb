@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="../baseadmin.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+    
+    <ui:define name="title">
+        Lista de Ejercicios
+    </ui:define>
+    
+    <ui:define name="content">
+        <h2> Ejercicios.:</h2>
+        <h:form>
+            <c:if test="#{ejercicioFace.list.isEmpty()}">
+                Lista de Ejercicios esta Limpio ! , podes crear un nuevo Ejercicio haciendo click
+                <h:commandLink action="#{ejercicioFace.doCreateEjercicio()}" value=" aqui"/>.
+            </c:if>
+            <c:if test="#{!ejercicioFace.list.isEmpty()}">
+            <h:dataTable var="item" value="#{ejercicioFace.list}">
+            <h:column>
+                <f:facet name="header">
+                    Id
+                </f:facet>
+                #{item.id}
+            </h:column>
+            
+                <h:column>
+                    <f:facet name="header">
+                       Descripcioin
+                    </f:facet>
+                    #{item.descripcion}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        Actions
+                    </f:facet>
+                    <h:commandLink action="#{ejercicioFace.doEditEjercicio()}" value="Edit">
+                        <f:setPropertyActionListener target="#{ejercicioFace.selectedBean}" value="#{item}"/>
+                    </h:commandLink>
+                    &nbsp;
+                    <h:commandLink onclick="return confirm('Estas Seguro de Eliminar ??')  " action="#{ejercicioFace.doRemoveEjercicio()}" value="Remover">
+                        <f:setPropertyActionListener target="#{ejercicioFace.selectedBean}" value="#{item}"/>
+                    </h:commandLink>
+                
+                </h:column>            
+            
+            </h:dataTable>    
+                <h:commandButton action="#{ejercicioFace.doCreateEjercicio()}" value="Crea nuevo Ejercicio"/>        
+            </c:if>
+        </h:form>        
+    </ui:define>
+
+</ui:composition>

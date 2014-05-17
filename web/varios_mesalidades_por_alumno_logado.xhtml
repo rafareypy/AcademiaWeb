@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="./base.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+    
+    <ui:define name="title">
+        Cuotas de Los alumnos!!
+    </ui:define>
+    
+    <ui:define name="content">
+        <h2> Cuotas del Almuno.:  #{planDePagoItemFace.alumno.nombre}</h2>
+        <h:form>            
+            <f:validateBean>        
+                <h:messages/>
+                <c:if test="#{planDePagoItemFace.listaCuotaPlanDePago.isEmpty()}">
+                    No hay Ninguna Mensalidade !!!                
+                </c:if>
+
+                <c:if test="#{!planDePagoItemFace.listaCuotaPlanDePago.isEmpty()}">
+                    <h2> Cuotas del Alumno.:  #{serieDetalleFace.serie.alumno}</h2>
+                </c:if>
+                
+                
+                <h:dataTable var="item" value="#{planDePagoItemFace.listaCuotaPlanDePago}"
+                             bgcolor="FFEBCD">
+                    <h:column>
+                        <f:facet name="header">
+                            Id
+                        </f:facet>
+                        #{item.id}
+                    </h:column>
+                    
+                    <h:column>
+                        <f:facet name="header">
+                            Nombre Plan
+                        </f:facet>
+                        <font color="RED"  > #{item.planDePago.descripcion}</font>
+                    </h:column>
+                    
+
+                    <h:column >
+                        <f:facet name="header">
+                             Fecha
+                        </f:facet>
+                        #{item.fechaPago}
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            Fecha Vencimiento
+                        </f:facet>
+                        #{item.fechaVencimiento}
+                    </h:column>
+                    
+                    <h:column>
+                        <f:facet name="header">
+                            Valor
+                        </f:facet>
+                        <font color="RED" >#{item.valor}</font>
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            Estado
+                        </f:facet>
+                        <font color="RED" >#{item.estadoCuota}</font>
+                    </h:column>                    
+                </h:dataTable>               
+            </f:validateBean>
+        </h:form>        
+    </ui:define>
+
+    
+
+</ui:composition>

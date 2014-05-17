@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="../baseadmin.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core">
+
+    
+    <ui:define name="title">
+        Edicion de Serie
+    </ui:define>
+    
+    <ui:define name="content">
+        <h2> Editar  Serie.:  #{serieFace.selectedBean.toString()}</h2>
+        <h:form>            
+            <f:validateBean>        
+                <h:messages/>
+            <table>
+
+                    <tr>
+                        <td>Alumno.:</td>
+                        <td><h:selectOneMenu  style="width: 150px" value="#{serieFace.selectedBean.alumno}">
+                                <f:selectItems var="itemSel" itemLabel="#{itemSel.nombre}" itemValue="#{itemSel}" value="#{serieFace.allAlumnos}"/>
+                                <f:converter converterId="alumnoConverter"/>
+                            </h:selectOneMenu>
+                        </td>
+                    </tr>                                
+
+      
+                
+                <tr>
+                    <td><center><h:commandButton action="#{serieFace.doFinishEditSerie()}" value="Modificar " /></center></td>
+                    <td><center><h:commandButton immediate="true"  action="#{serieFace.doListSerie()}" value="Cancelar" /></center></td>                    
+                </tr>                                    
+            </table> 
+            </f:validateBean>
+        </h:form>        
+    </ui:define>
+
+</ui:composition>

@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="../baseadmin.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+    
+    <ui:define name="title">
+        Lista de Alumnos..!!!
+    </ui:define>
+    
+    <ui:define name="content">
+        <h2> Alumnos.:</h2>
+        <h:form>
+            <c:if test="#{ alumnoFace.list.isEmpty()}">
+                Lista de Alumnos esta vacia ! , podes agregar un Alumno haciendo click
+                <h:commandLink action="#{alumnoFace.doCreateAlumno()}" value=" aqui"/>.
+            </c:if>
+            <c:if test="#{!alumnoFace.list.isEmpty()}">
+            <h:dataTable var="item" value="#{alumnoFace.list}">
+           
+            <h:column>
+                <f:facet name="header" >
+                    Id
+                </f:facet>
+                 #{item.id}
+            </h:column  >
+            
+                <h:column  >
+                    
+                    <f:facet name="header" >
+                         Nombre de Alumno.:
+                    </f:facet>
+                    
+                    #{item.nombre}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        Apellido de Alumno.:
+                    </f:facet>
+                    #{item.apelido}
+                </h:column>
+                
+                
+                <h:column>
+                    <f:facet name="header">
+                        C.I. de Alumno.:
+                    </f:facet>
+                    #{item.cedula}
+                </h:column>
+                
+                
+                <h:column>
+                    <f:facet name="header">
+                        Genero.:
+                    </f:facet>
+                    #{item.genero}
+                </h:column>
+                
+                
+                <h:column>
+                    <f:facet name="header">
+                        Estado Civil.:
+                    </f:facet>
+                    #{item.estadoCivil}
+                </h:column>
+                                
+
+                
+                <h:column>
+                    <f:facet name="header">
+                        Email.:
+                    </f:facet>
+                   #{item.email}
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header">
+                        Barrio.:
+                    </f:facet>
+                    #{item.barrio}
+                </h:column>
+
+                
+
+                <h:column>
+                    <f:facet name="header">
+                        Actions
+                    </f:facet>
+                    <h:commandLink action="#{alumnoFace.doEditAlumno()}" value="Edit">
+                        <f:setPropertyActionListener target="#{alumnoFace.selectedBean}" value="#{item}"/>
+                    </h:commandLink>
+                    &nbsp;
+                    <h:commandLink onclick="return confirm('Estas Seguro de Eliminar ??')  " action="#{alumnoFace.doRemoveAlumno()}" value="Remover">
+                        <f:setPropertyActionListener target="#{alumnoFace.selectedBean}" value="#{item}"/>
+                    </h:commandLink>
+                
+                </h:column>            
+            
+            </h:dataTable>    
+                <h:commandButton action="#{alumnoFace.doCreateAlumno()}" value="Crea nuevo Alumno"/>        
+            </c:if>
+        </h:form>        
+    </ui:define>
+
+</ui:composition>
