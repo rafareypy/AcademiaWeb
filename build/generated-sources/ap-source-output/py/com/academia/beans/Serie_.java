@@ -9,7 +9,7 @@ import py.com.academia.beans.Alumno;
 import py.com.academia.beans.SerieDetalle;
 import py.com.academia.beans.enums.DiaSemana;
 
-@Generated(value="EclipseLink-2.3.2.v20111125-r10461", date="2014-05-15T20:44:37")
+@Generated(value="EclipseLink-2.3.2.v20111125-r10461", date="2014-05-17T22:20:38")
 @StaticMetamodel(Serie.class)
 public class Serie_ { 
 

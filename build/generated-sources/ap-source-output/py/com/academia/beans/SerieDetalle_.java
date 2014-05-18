@@ -7,7 +7,7 @@ import py.com.academia.beans.AparatoMusculacion;
 import py.com.academia.beans.Ejercicio;
 import py.com.academia.beans.Serie;
 
-@Generated(value="EclipseLink-2.3.2.v20111125-r10461", date="2014-05-15T20:44:36")
+@Generated(value="EclipseLink-2.3.2.v20111125-r10461", date="2014-05-17T22:20:38")
 @StaticMetamodel(SerieDetalle.class)
 public class SerieDetalle_ { 
 

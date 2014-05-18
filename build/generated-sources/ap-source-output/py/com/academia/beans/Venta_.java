@@ -8,7 +8,7 @@ import javax.persistence.metamodel.StaticMetamodel;
 import py.com.academia.beans.ItemVenta;
 import py.com.academia.beans.enums.StatusVentaType;
 
-@Generated(value="EclipseLink-2.3.2.v20111125-r10461", date="2014-05-15T20:44:37")
+@Generated(value="EclipseLink-2.3.2.v20111125-r10461", date="2014-05-17T22:20:38")
 @StaticMetamodel(Venta.class)
 public class Venta_ { 
 

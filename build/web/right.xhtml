@@ -6,7 +6,11 @@
       xmlns:h="http://java.sun.com/jsf/html">
     
     <body>
-
+        <h:form>
+            <div class="iniciosession" >                            
+                <h:commandLink  rendered="#{!usuarioAlumnoFace.userLogged}" value="Inicio  Session" action="#{usuarioAlumnoFace.doLoginSystem}"/>
+            </div>                
+        </h:form>
     </body>
         
     

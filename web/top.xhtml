@@ -9,19 +9,17 @@
     <body>
         <ui:composition>
             
-            
-            
             <h:form>
-                <div id="apresentacao" >
+                <div class="apresentacao" >
                     <img src="/AcademiaWeb/resources/images/SistemaWeb.png" alt="logo"/>
                 </div>
                 <div id="loginDiv" style="text-align: right">
                     <h:outputText rendered="#{usuarioAlumnoFace.userLogged}" value="Bienvenido..#{usuarioAlumnoFace.loggedUser.nombre}"/>
-                    <h:commandLink rendered="#{usuarioAlumnoFace.userLogged}" value="[salir]" action="#{usuarioAlumnoFace.doLogOut()}"/> &nbsp;
-                                        
-                    <h:commandLink  rendered="#{!usuarioAlumnoFace.userLogged}" value="Inicio Session" action="#{usuarioAlumnoFace.doLoginSystem}"/>
-                </div>
+                    <h:commandLink rendered="#{usuarioAlumnoFace.userLogged}" value="[salir]" action="#{usuarioAlumnoFace.doLogOut()}"/> &nbsp;                                                                                
+                </div>                                
             </h:form>
+            
+            
             
             
         </ui:composition>                
