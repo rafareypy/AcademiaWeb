@@ -3,5 +3,6 @@ AcademiaWeb
 
 Sistema Academia
 
-modificacao local
+
+Projeto utilizando JFS, JPA, CDI
 
